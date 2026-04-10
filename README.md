@@ -1,20 +1,20 @@
 # 📊 Tech Layoffs Exploratory Data Analysis in SQL
 
-This repository contains my SQL project for exploratory data analysis (EDA) on a tech layoffs dataset. Using the cleaned layoffs table from my previous SQL data-cleaning project, I explored patterns in layoffs across companies, industries, countries, locations, years, and funding levels.
+This repository contains my SQL project for exploratory data analysis (EDA) on a tech layoffs dataset. Using the cleaned layoffs table from my previous SQL data-cleaning project, I explored patterns in layoffs across companies, industries, countries, years, and company stages.
 
 ---
 
 ## 📌 Introduction
 
-This project focuses on exploring trends and patterns in a layoffs dataset using SQL. After cleaning the raw data in a separate preprocessing workflow, I used SQL queries to investigate the scale, timing, and distribution of layoffs across the tech sector.
+This project focuses on exploring trends and patterns in a tech layoffs dataset using SQL. After cleaning the raw data in a separate preprocessing workflow, I used SQL queries to investigate the scale, timing, and distribution of layoffs across the tech sector.
 
-The project demonstrates how SQL can be used not only for data cleaning, but also for meaningful business analysis and trend discovery.
+The analysis shows how SQL can be used not only for cleaning data, but also for extracting meaningful business insights from structured datasets.
 
 ---
 
 ## 💡 Motivation
 
-Layoffs data can reveal important patterns about economic conditions, industry risk, startup funding pressure, and company performance over time.
+Layoffs data can reveal important patterns about economic pressure, industry instability, startup funding challenges, and company-level risk over time.
 
 The goal of this project is to use SQL-based exploratory analysis to answer questions such as:
 
@@ -24,13 +24,13 @@ The goal of this project is to use SQL-based exploratory analysis to answer ques
 - Which companies had the highest layoffs in each year?
 - How did cumulative layoffs grow month by month?
 
-This project shows how SQL can be used to transform cleaned transactional data into actionable insights.
+This project demonstrates how SQL can turn a cleaned dataset into clear analytical findings.
 
 ---
 
 ## 📂 Dataset Description
 
-This project uses the same cleaned layoffs dataset from the previous SQL data-cleaning project.
+This project uses the cleaned layoffs dataset from my previous SQL data-cleaning project.
 
 The analysis is performed on the table:
 
@@ -48,13 +48,13 @@ Key variables used in the EDA include:
 - `stage`
 - `funds_raised_millions`
 
-Because the data was already cleaned beforehand, this project focuses on exploring trends rather than preprocessing.
+Because the data was already cleaned beforehand, this project focuses on exploration and trend analysis rather than preprocessing.
 
 ---
 
 ## 🔍 Exploratory Analysis Goals
 
-The SQL queries in this project explore several types of questions:
+The SQL queries in this project explore several types of analytical questions:
 
 ### 1. Scale of layoffs
 - maximum number of layoffs in a single event
@@ -77,8 +77,6 @@ The SQL queries in this project explore several types of questions:
 - layoffs by month
 - rolling cumulative total of layoffs over time
 
-These queries help turn the cleaned dataset into a clearer picture of how layoffs were distributed across the tech ecosystem.
-
 ---
 
 ## 🧪 SQL Analysis Techniques Used
@@ -98,7 +96,23 @@ This project uses a range of SQL analysis techniques, including:
 - `SUM() OVER (...)`
 - monthly grouping with `SUBSTRING()`
 
-These techniques support both simple descriptive summaries and more advanced ranking and time-series style analysis.
+These techniques support both descriptive summaries and more advanced ranking and time-based analysis.
+
+---
+
+## 📊 Key Visualisations
+
+### 1. Top 3 Companies with the Highest Layoffs by Year
+
+![Top 3 Companies with the Highest Layoffs by Year](Top3_Companies_Highest_Layoffs_by_Year.png)
+
+This output shows the top three companies with the highest total layoffs in each year. The query uses a Common Table Expression together with `DENSE_RANK()` to rank companies within each year based on total layoffs. This makes it easier to compare major layoff events across different years rather than only across the full dataset.
+
+### 2. Rolling Total of Layoffs Per Month
+
+![Rolling Total of Layoffs Per Month](Rolling_Total_Layoffs_Per_Month.png)
+
+This output displays monthly layoffs and a rolling cumulative total over time. The analysis first aggregates layoffs by month and then applies a window function using `SUM() OVER (ORDER BY dates)` to calculate the running total. This helps show how layoffs built up across the full period covered by the dataset.
 
 ---
 
@@ -140,21 +154,23 @@ This helps show how layoffs built up month by month across the full period cover
 
 ---
 
-## 📊 Key Findings
+## 📌 Key Insights
 
 Some of the main insights supported by the SQL analysis include:
 
-- some companies recorded extremely large single layoff events
+- some companies recorded very large single layoff events
 - several firms had `percentage_laid_off = 1`, indicating complete workforce cuts
-- layoffs vary significantly across industries, countries, and company stages
-- the companies with the most layoffs change from year to year
-- cumulative layoffs increase over time, and rolling totals help highlight the broader trend rather than only isolated events
+- layoffs varied significantly across industries, countries, and company stages
+- the companies with the highest layoffs changed from year to year
+- rolling totals helped reveal the broader cumulative trend in layoffs over time
 
 ---
 
 ## 📁 Files
 
-- `EDA_SQL_Project.sql` – SQL script containing all exploratory analysis queries
+- `EDA_SQL_Project.sql` — SQL script containing all exploratory analysis queries
+- `Screenshot 2026-04-10 at 2.49.34 pm.png` — top companies by layoffs for each year
+- `Screenshot 2026-04-10 at 2.52.09 pm.png` — rolling cumulative layoffs by month
 - cleaned layoffs dataset/table from the previous project:
   - `world_layoffs.layoffs_staging2`
 
@@ -162,9 +178,9 @@ Some of the main insights supported by the SQL analysis include:
 
 ## ▶️ How to Run the Project
 
-1. Open your SQL environment (e.g. MySQL Workbench)
+1. Open your SQL environment, such as **MySQL Workbench**
 2. Make sure the cleaned table `world_layoffs.layoffs_staging2` already exists
-3. Run the queries in `EDA_SQL_Project.sql`
+3. Open and run the queries in `EDA_SQL_Project.sql`
 4. Review the outputs to explore:
    - top layoff companies
    - yearly and monthly trends
