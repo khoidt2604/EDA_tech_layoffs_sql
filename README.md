@@ -104,13 +104,13 @@ These techniques support both descriptive summaries and more advanced ranking an
 
 ### 1. Top 3 Companies with the Highest Layoffs by Year
 
-![Top 3 Companies with the Highest Layoffs by Year](Top3_Companies_Highest_Layoffs_by_Year.png)
+![Top 3 Companies with the Highest Layoffs by Year](Top3_Companies_Highest_Layoffs_by_Year_.png)
 
 This output shows the top three companies with the highest total layoffs in each year. The query uses a Common Table Expression together with `DENSE_RANK()` to rank companies within each year based on total layoffs. This makes it easier to compare major layoff events across different years rather than only across the full dataset.
 
 ### 2. Rolling Total of Layoffs Per Month
 
-![Rolling Total of Layoffs Per Month](Rolling_Total_Layoffs_Per_Month.png)
+![Rolling Total of Layoffs Per Month](Rolling_Total_Layoffs_Per_Month_.png)
 
 This output displays monthly layoffs and a rolling cumulative total over time. The analysis first aggregates layoffs by month and then applies a window function using `SUM() OVER (ORDER BY dates)` to calculate the running total. This helps show how layoffs built up across the full period covered by the dataset.
 
