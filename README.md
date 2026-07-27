@@ -169,8 +169,8 @@ Some of the main insights supported by the SQL analysis include:
 ## 📁 Files
 
 - `EDA_SQL_Project.sql` — SQL script containing all exploratory analysis queries
-- `Screenshot 2026-04-10 at 2.49.34 pm.png` — top companies by layoffs for each year
-- `Screenshot 2026-04-10 at 2.52.09 pm.png` — rolling cumulative layoffs by month
+- Top companies by layoffs for each year
+- Rolling cumulative layoffs by month
 - cleaned layoffs dataset/table from the previous project:
   - `world_layoffs.layoffs_staging2`
 
